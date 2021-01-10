@@ -9,9 +9,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Cw3.DAL;
+using Cw4.DAL;
+using Cw4.DAL;
 
-namespace Cw3
+namespace Cw4
 {
     public class Startup
     {
@@ -25,7 +26,7 @@ namespace Cw3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IDbService, MockDbService>();
+            services.AddSingleton<IDbService, DbService>();
             services.AddControllers();
         }
 

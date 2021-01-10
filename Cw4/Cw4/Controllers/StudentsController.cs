@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Cw3.DAL;
-using Cw3.Models;
+using Cw4.DAL;
+using Cw4.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Cw3.Controllers
+namespace Cw4.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -27,18 +27,20 @@ namespace Cw3.Controllers
             return Ok(_dbService.GetStudents());
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetStudent(int id)
+        [HttpGet("{IndexNumber}")]
+        public IActionResult GetStudent(string IndexNumber)
         {
-            if (id == 1)
-            {
-                return Ok("Kowalski");
-            } else if (id == 2)
-            {
-                return Ok("Malewski");
-            }
+            //if (id == 1)
+            //{
+            //    return Ok("Kowalski");
+            //} else if (id == 2)
+            //{
+            //    return Ok("Malewski");
+            //}
 
-            return NotFound("Nie znaleziono studenta");
+            return Ok(_dbService.GetStudentEnrollments(IndexNumber));
+
+            //return NotFound("Nie znaleziono studenta");
         }
 
         [HttpPost]
